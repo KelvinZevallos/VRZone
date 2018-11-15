@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Lobby.unity
+    guid: 5524d60331447384a8f849d234fbd5c4
+  - enabled: 1
+    path: Assets/Scenes/VR Video Player.unity
+    guid: b309a2d435c294643bffadb1a29eaf79
+  m_configObjects: {}

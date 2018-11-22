@@ -6,8 +6,8 @@ public class MaterialGradientModifier : MonoBehaviour
     [SerializeField] private Gradient _gradient;
 
     private Renderer _renderer;
-    private float _gradientPosition;
 
+    private float _gradientPosition;
     public float gradientPosition
     {
         get { return _gradientPosition; }

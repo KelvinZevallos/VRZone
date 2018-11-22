@@ -45,6 +45,40 @@ public class ObjectFocusManager : MonoBehaviour
     {
         Instance.objectsInRange.Remove(objectToRemove);
     }
+
+    public static void Sort()
+    {
+        if (Count > 1)
+        {
+            Instance.objectsInRange.Sort((a, b) => a.delta.CompareTo(b.delta));
+        }
+        Instance.firstInList = (Count > 0) ? Instance.objectsInRange[0] : null;
+    }
+    #endregion
+
+    #region Instance Properties & Methods
+    private ObjectFocus _firstInList;
+    public ObjectFocus firstInList
+    {
+        get
+        {
+            return _firstInList;
+        }
+        private set
+        {
+            if (value != _firstInList)
+            {
+                if (_firstInList)
+                    _firstInList.LostFocus();
+
+                _firstInList = value;
+
+                if (_firstInList)
+                    _firstInList.GotFocus();
+            }
+        }
+    }
+
     #endregion
 
     #region MonoBehaviours
@@ -70,7 +104,7 @@ public class ObjectFocusManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
+        Sort();
     }
 
 #if DEBUG
